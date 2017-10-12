@@ -8,9 +8,9 @@ from Cython.Build import cythonize
 
 setup(ext_modules=cythonize(Extension(
     "dbtransfer",
-    include_dirs=[os.path.abspath("."), os.path.abspath("./oracle/include")],
-    library_dirs=[os.path.abspath("./oracle/lib/x64")],
+    include_dirs=[os.path.abspath("./include"), os.path.abspath("./include/oracle/11g")],
+    library_dirs=[os.path.abspath("./lib/oracle/11g/x64")],
     libraries=["oci", "odbc32"],
-    sources=["python/dbtransfer.pyx", "dbtransfer.cpp"],
+    sources=["src/cython/dbtransfer.pyx", "src/cpp/dbtransfer.cpp"],
     language="c++",
 )))
